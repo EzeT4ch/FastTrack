@@ -1,0 +1,12 @@
+C:\Workspace\FastTrack\Shared.Abstractions\bin\Debug\net10.0\Shared.Abstractions.deps.json
+C:\Workspace\FastTrack\Shared.Abstractions\bin\Debug\net10.0\Shared.Abstractions.dll
+C:\Workspace\FastTrack\Shared.Abstractions\bin\Debug\net10.0\Shared.Abstractions.pdb
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\Shared.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\Shared.Abstractions.AssemblyInfoInputs.cache
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\Shared.Abstractions.AssemblyInfo.cs
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\Shared.Abstractions.csproj.CoreCompileInputs.cache
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\Shared.Abstractions.sourcelink.json
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\Shared.Abstractions.dll
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\refint\Shared.Abstractions.dll
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\Shared.Abstractions.pdb
+C:\Workspace\FastTrack\Shared.Abstractions\obj\Debug\net10.0\ref\Shared.Abstractions.dll

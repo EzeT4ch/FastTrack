@@ -1,0 +1,16 @@
+C:\Workspace\FastTrack\FastTrack.Persistence\bin\Debug\net10.0\FastTrack.Persistence.deps.json
+C:\Workspace\FastTrack\FastTrack.Persistence\bin\Debug\net10.0\FastTrack.Persistence.dll
+C:\Workspace\FastTrack\FastTrack.Persistence\bin\Debug\net10.0\FastTrack.Persistence.pdb
+C:\Workspace\FastTrack\FastTrack.Persistence\bin\Debug\net10.0\Shared.Abstractions.dll
+C:\Workspace\FastTrack\FastTrack.Persistence\bin\Debug\net10.0\Shared.Abstractions.pdb
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.csproj.AssemblyReference.cache
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.AssemblyInfoInputs.cache
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.AssemblyInfo.cs
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.csproj.CoreCompileInputs.cache
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.sourcelink.json
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrac.90DB40E4.Up2Date
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.dll
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\refint\FastTrack.Persistence.dll
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.pdb
+C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\ref\FastTrack.Persistence.dll

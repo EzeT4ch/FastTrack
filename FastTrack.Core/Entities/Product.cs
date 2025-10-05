@@ -10,6 +10,8 @@ namespace FastTrack.Core.Entities
         
         public int KioskId { get; private set; }
         
+        public string Name { get; private set; }
+        
         public string SkuCode { get; private set; }
         
         public SimpleStatus Status {  get; private set; }

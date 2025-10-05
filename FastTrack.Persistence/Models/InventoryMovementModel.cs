@@ -26,6 +26,9 @@ public class InventoryMovementModel
     [Required]
     public int ProductId { get; set; }
     
+    [Required]
+    public int OrderId { get; set; }
+    
     public DateTime DateAdded { get; set; } = DateTime.Now;
     
     public int AddedBy { get; set; }
@@ -39,4 +42,7 @@ public class InventoryMovementModel
 
     [ForeignKey(nameof(ProductId))]
     public virtual ProductModel Product { get; set; }
+    
+    [ForeignKey(nameof(OrderId))]
+    public virtual PurchaseOrderModel Order { get; set; }
 }

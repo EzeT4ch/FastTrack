@@ -18,6 +18,19 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "FastTrack.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Shared.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FastTrack.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FastTrack.Core.dll": {}
+        }
+      },
       "Shared.Abstractions/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -62,6 +75,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "FastTrack.Core/1.0.0": {
+      "type": "project",
+      "path": "../FastTrack.Core/FastTrack.Core.csproj",
+      "msbuildProject": "../FastTrack.Core/FastTrack.Core.csproj"
+    },
     "Shared.Abstractions/1.0.0": {
       "type": "project",
       "path": "../Shared.Abstractions/Shared.Abstractions.csproj",
@@ -70,6 +88,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "FastTrack.Core >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 10.0.0-rc.1.25451.107",
       "Shared.Abstractions >= 1.0.0"
     ]
@@ -107,6 +126,9 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Workspace\\FastTrack\\FastTrack.Core\\FastTrack.Core.csproj": {
+              "projectPath": "C:\\Workspace\\FastTrack\\FastTrack.Core\\FastTrack.Core.csproj"
+            },
             "C:\\Workspace\\FastTrack\\Shared.Abstractions\\Shared.Abstractions.csproj": {
               "projectPath": "C:\\Workspace\\FastTrack\\Shared.Abstractions\\Shared.Abstractions.csproj"
             }
