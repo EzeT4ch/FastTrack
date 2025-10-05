@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "R/cTT39I0Dc=",
+  "success": true,
+  "projectFilePath": "C:\\Workspace\\FastTrack\\FastTrack.Persistence\\FastTrack.Persistence.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0-rc.1.25451.107\\microsoft.extensions.dependencyinjection.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512"
+  ],
+  "logs": []
+}

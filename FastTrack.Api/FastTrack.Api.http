@@ -1,0 +1,6 @@
+@FastTrack.Api_HostAddress = http://localhost:5252
+
+GET {{FastTrack.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
