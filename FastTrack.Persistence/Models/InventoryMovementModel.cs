@@ -3,24 +3,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FastTrack.Persistence.Models;
 
-[Table("Products")]
-public class ProductModel
+[Table("InventoryMovements")]
+public class InventoryMovementModel
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     
+    [Required]
+    [MaxLength(100)]
+    public string SkuCode { get; set; }
+    
+    [Required]
+    public int Quantity { get; set; }
+    
+    [Required]
+    public int InventoryMovementType { get; set; }
+    
+    [Required]
+    [ForeignKey("KioskId")]
     public int KioskId { get; set; }
     
     [Required]
-    [MaxLength(100)]
-    public string Name { get; set; }
-    
-    [Required]
-    public string Sku { get; set; }
-    
-    [Required]
-    public int Status { get; set; }
+    [ForeignKey("ProductId")]
+    public int ProductId { get; set; }
     
     public DateTime DateAdded { get; set; } = DateTime.Now;
     
@@ -32,9 +38,5 @@ public class ProductModel
     
     public virtual KioskModel Kiosk { get; set; }
     
-    public virtual ICollection<CurrentInventoryModel> CurrentInventories { get; set; } = [];
-    
-    public virtual ICollection<InventoryMovementModel> InventoryMovements { get; set; } = [];
-    
-    public virtual ICollection<OrderDetailModel> OrderDetails { get; set; } = [];
+    public virtual ProductModel Product { get; set; }
 }

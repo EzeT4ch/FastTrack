@@ -33,4 +33,5 @@ public class KioskModel
     public virtual ICollection<CurrentInventoryModel> CurrentInventories { get; set; } = [];
     public virtual ICollection<ProductModel> Products { get; set; } = [];
     public virtual ICollection<PurchaseOrderModel> PurchaseOrders { get; set; } = [];
+    public virtual ICollection<InventoryMovementModel> InventoryMovements { get; set; } = [];
 }
