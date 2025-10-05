@@ -10,6 +10,7 @@ public class ProductModel
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     
+    [Required]
     public int KioskId { get; set; }
     
     [Required]
@@ -30,6 +31,7 @@ public class ProductModel
     
     public int UpdatedBy { get; set; }
     
+    [ForeignKey(nameof(KioskId))]
     public virtual KioskModel Kiosk { get; set; }
     
     public virtual ICollection<CurrentInventoryModel> CurrentInventories { get; set; } = [];

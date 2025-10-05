@@ -19,11 +19,11 @@ public class OrderDetailModel
     
     [Required]
     public int Quantity { get; set; }
-    
-    [ForeignKey("PurchaseOrderId")]
+
+    [Required]
     public int PurchaseOrderId { get; set; }
     
-    [ForeignKey("ProductId")]
+    [Required]
     public int ProductId { get; set; }
     
     public DateTime DateAdded { get; set; } = DateTime.Now;
@@ -34,7 +34,9 @@ public class OrderDetailModel
     
     public int UpdatedBy { get; set; }
     
+    [ForeignKey(nameof(PurchaseOrderId))]
     public virtual PurchaseOrderModel PurchaseOrder { get; set; }
     
+    [ForeignKey(nameof(ProductId))]
     public virtual ProductModel Product { get; set; }
 }

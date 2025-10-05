@@ -23,7 +23,7 @@ public class PurchaseOrderModel
     [Required]
     public int TotalQuantity { get; private set; }
 
-    [ForeignKey("KioskId")]
+    [Required]
     public int KioskId { get; private set; }
         
     public DateTime DateAdded { get; private set; } = DateTime.Now;
@@ -34,5 +34,6 @@ public class PurchaseOrderModel
         
     public int UpdatedBy { get; private set; }
 
+    [ForeignKey(nameof(KioskId))]
     public virtual KioskModel Kiosk { get; private set; }
 }

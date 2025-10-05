@@ -21,11 +21,9 @@ public class InventoryMovementModel
     public int InventoryMovementType { get; set; }
     
     [Required]
-    [ForeignKey("KioskId")]
     public int KioskId { get; set; }
     
     [Required]
-    [ForeignKey("ProductId")]
     public int ProductId { get; set; }
     
     public DateTime DateAdded { get; set; } = DateTime.Now;
@@ -36,7 +34,9 @@ public class InventoryMovementModel
     
     public int UpdatedBy { get; set; }
     
+    [ForeignKey(nameof(KioskId))]
     public virtual KioskModel Kiosk { get; set; }
-    
+
+    [ForeignKey(nameof(ProductId))]
     public virtual ProductModel Product { get; set; }
 }
