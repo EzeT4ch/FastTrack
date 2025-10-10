@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "MyVrhtTVphQ=",
+  "dgSpecHash": "jgU2UeLorKk=",
   "success": true,
   "projectFilePath": "C:\\Workspace\\FastTrack\\FastTrack.Api\\FastTrack.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brian\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0-rc.1.25451.107\\microsoft.aspnetcore.openapi.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.0-rc.1.25451.107\\microsoft.entityframeworkcore.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.0-rc.1.25451.107\\microsoft.entityframeworkcore.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.0-rc.1.25451.107\\microsoft.entityframeworkcore.analyzers.10.0.0-rc.1.25451.107.nupkg.sha512",
     "C:\\Users\\brian\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
   ],
   "logs": []

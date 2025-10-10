@@ -1,6 +1,5 @@
-﻿namespace FastTrack.Core.Enums
+﻿namespace FastTrack.Core.Enums;
+
+public enum InventoryMovementType
 {
-    public enum InventoryMovementType
-    {
-    }
 }

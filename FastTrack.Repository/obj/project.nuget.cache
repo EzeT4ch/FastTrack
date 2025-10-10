@@ -1,10 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "uLIjNLymBcI=",
+  "dgSpecHash": "kys5tByGnUk=",
   "success": true,
   "projectFilePath": "C:\\Workspace\\FastTrack\\FastTrack.Repository\\FastTrack.Repository.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0-rc.1.25451.107\\microsoft.extensions.dependencyinjection.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512"
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.entityframeworkcore\\10.0.0-rc.1.25451.107\\microsoft.entityframeworkcore.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\10.0.0-rc.1.25451.107\\microsoft.entityframeworkcore.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\10.0.0-rc.1.25451.107\\microsoft.entityframeworkcore.analyzers.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.0-rc.1.25451.107\\microsoft.extensions.caching.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.0-rc.1.25451.107\\microsoft.extensions.caching.memory.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.0-rc.1.25451.107\\microsoft.extensions.dependencyinjection.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0-rc.1.25451.107\\microsoft.extensions.dependencyinjection.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.logging\\10.0.0-rc.1.25451.107\\microsoft.extensions.logging.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0-rc.1.25451.107\\microsoft.extensions.logging.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.options\\10.0.0-rc.1.25451.107\\microsoft.extensions.options.10.0.0-rc.1.25451.107.nupkg.sha512",
+    "C:\\Users\\brian\\.nuget\\packages\\microsoft.extensions.primitives\\10.0.0-rc.1.25451.107\\microsoft.extensions.primitives.10.0.0-rc.1.25451.107.nupkg.sha512"
   ],
   "logs": []
 }

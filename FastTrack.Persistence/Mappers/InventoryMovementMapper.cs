@@ -30,7 +30,8 @@ public static class InventoryMovementMapper
     }
 
     public static InventoryMovementModel ToModel(this InventoryMovement entity)
-        => new()
+    {
+        return new InventoryMovementModel
         {
             Id = entity.Id,
             SkuCode = entity.SkuCode,
@@ -44,4 +45,5 @@ public static class InventoryMovementMapper
             LastUpdate = entity.LastUpdate,
             UpdatedBy = entity.UpdatedBy
         };
+    }
 }

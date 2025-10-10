@@ -9,40 +9,30 @@ public class InventoryMovementModel
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
-    
-    [Required]
-    [MaxLength(100)]
-    public string SkuCode { get; set; }
-    
-    [Required]
-    public int Quantity { get; set; }
-    
-    [Required]
-    public int InventoryMovementType { get; set; }
-    
-    [Required]
-    public int KioskId { get; set; }
-    
-    [Required]
-    public int ProductId { get; set; }
-    
-    [Required]
-    public int OrderId { get; set; }
-    
-    public DateTime DateAdded { get; set; } = DateTime.Now;
-    
-    public int AddedBy { get; set; }
-    
-    public DateTime LastUpdate { get; set; }
-    
-    public int UpdatedBy { get; set; }
-    
-    [ForeignKey(nameof(KioskId))]
-    public virtual KioskModel Kiosk { get; set; }
 
-    [ForeignKey(nameof(ProductId))]
-    public virtual ProductModel Product { get; set; }
-    
-    [ForeignKey(nameof(OrderId))]
-    public virtual PurchaseOrderModel Order { get; set; }
+    [Required] [MaxLength(100)] public string SkuCode { get; set; }
+
+    [Required] public int Quantity { get; set; }
+
+    [Required] public int InventoryMovementType { get; set; }
+
+    [Required] public int KioskId { get; set; }
+
+    [Required] public int ProductId { get; set; }
+
+    [Required] public int OrderId { get; set; }
+
+    public DateTime DateAdded { get; set; } = DateTime.Now;
+
+    public int AddedBy { get; set; }
+
+    public DateTime LastUpdate { get; set; }
+
+    public int UpdatedBy { get; set; }
+
+    [ForeignKey(nameof(KioskId))] public virtual KioskModel Kiosk { get; set; }
+
+    [ForeignKey(nameof(ProductId))] public virtual ProductModel Product { get; set; }
+
+    [ForeignKey(nameof(OrderId))] public virtual PurchaseOrderModel Order { get; set; }
 }

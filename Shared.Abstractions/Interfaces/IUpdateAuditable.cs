@@ -1,8 +1,7 @@
-﻿namespace Shared.Abstractions.Interfaces
+﻿namespace Shared.Abstractions.Interfaces;
+
+public interface IUpdateAuditable
 {
-    public interface IUpdateAuditable
-    {
-        DateTime LastUpdate { get; }
-        int UpdatedBy { get; }
-    }
+    DateTime LastUpdate { get; }
+    int UpdatedBy { get; }
 }

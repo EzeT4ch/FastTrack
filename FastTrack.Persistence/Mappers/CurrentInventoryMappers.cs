@@ -26,17 +26,18 @@ public static class CurrentInventoryMappers
         return entity;
     }
 
-    public static OrderDetailModel ToModel(this OrderDetail entity)
-        => new ()
+    public static CurrentInventoryModel ToModel(this CurrentInventory entity)
+    {
+        return new CurrentInventoryModel
         {
             Id = entity.Id,
-            Line = entity.Line,
-            SkuCode = entity.SkuCode,
-            PurchaseOrderId = entity.PurchaseOrderId,
+            Quantity = entity.Quantity,
+            KioskId = entity.KioskId,
             ProductId = entity.ProductId,
             DateAdded = entity.DateAdded,
             AddedBy = entity.AddedBy,
             LastUpdate = entity.LastUpdate,
             UpdatedBy = entity.UpdatedBy
         };
+    }
 }

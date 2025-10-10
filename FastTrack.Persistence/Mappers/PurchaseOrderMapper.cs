@@ -1,4 +1,5 @@
-﻿using FastTrack.Core.Entities;
+﻿using System.Reflection;
+using FastTrack.Core.Entities;
 using FastTrack.Persistence.Extensions;
 using FastTrack.Persistence.Models;
 
@@ -10,7 +11,7 @@ public static class PurchaseOrderMapper
     {
         PurchaseOrder entity = (PurchaseOrder)Activator.CreateInstance(
             typeof(PurchaseOrder),
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance,
+            BindingFlags.NonPublic | BindingFlags.Instance,
             null, null, null)!;
 
         entity.SetPrivateProperty(nameof(PurchaseOrder.Id), model.Id);
@@ -25,5 +26,22 @@ public static class PurchaseOrderMapper
         entity.SetPrivateProperty(nameof(PurchaseOrder.UpdatedBy), model.UpdatedBy);
 
         return entity;
+    }
+    
+    public static PurchaseOrderModel ToModel(this PurchaseOrder entity)
+    {
+        return new PurchaseOrderModel()
+        {
+            Id = entity.Id,
+            ExternalOrderkey = entity.ExternalOrderkey,
+            TotalLines = entity.TotalLines,
+            TotalQuantity = entity.TotalQuantity,
+            Status = entity.Status,
+            KioskId = entity.KioskId,
+            DateAdded = entity.DateAdded,
+            AddedBy = entity.AddedBy,
+            LastUpdate = entity.LastUpdate,
+            UpdatedBy = entity.UpdatedBy
+        };
     }
 }

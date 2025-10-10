@@ -1,4 +1,5 @@
-﻿using FastTrack.Core.Entities;
+﻿using System.Reflection;
+using FastTrack.Core.Entities;
 using FastTrack.Persistence.Extensions;
 using FastTrack.Persistence.Models;
 
@@ -10,7 +11,7 @@ public static class ProductMapper
     {
         Product entity = (Product)Activator.CreateInstance(
             typeof(Product),
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance,
+            BindingFlags.NonPublic | BindingFlags.Instance,
             null, null, null)!;
 
         entity.SetPrivateProperty(nameof(Product.Id), model.Id);
@@ -24,9 +25,10 @@ public static class ProductMapper
 
         return entity;
     }
-    
+
     public static ProductModel ToModel(this Product entity)
-        => new()
+    {
+        return new ProductModel
         {
             Id = entity.Id,
             KioskId = entity.KioskId,
@@ -38,4 +40,5 @@ public static class ProductMapper
             LastUpdate = entity.LastUpdate,
             UpdatedBy = entity.UpdatedBy
         };
+    }
 }

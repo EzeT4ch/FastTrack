@@ -1,7 +1,6 @@
-﻿namespace Shared.Abstractions.Interfaces
+﻿namespace Shared.Abstractions.Interfaces;
+
+public interface IEntity
 {
-    public interface IEntity
-    {
-        public int Id { get; }
-    }
+    public int Id { get; }
 }

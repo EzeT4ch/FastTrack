@@ -1,10 +1,9 @@
-﻿namespace Shared.Abstractions.Enums
+﻿namespace Shared.Abstractions.Enums;
+
+public enum SimpleStatus
 {
-    public enum SimpleStatus
-    {
-        Activo = 0,
-        Suspendido = 1,
-        Eliminado = 2,
-        Enviado = 3
-    }
+    Activo = 0,
+    Suspendido = 1,
+    Eliminado = 2,
+    Enviado = 3
 }

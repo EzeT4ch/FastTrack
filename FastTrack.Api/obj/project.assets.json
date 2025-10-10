@@ -24,6 +24,42 @@
           "build/Microsoft.AspNetCore.OpenApi.targets": {}
         }
       },
+      "Microsoft.EntityFrameworkCore/10.0.0-rc.1.25451.107": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.0-rc.1.25451.107",
+          "Microsoft.EntityFrameworkCore.Analyzers": "10.0.0-rc.1.25451.107"
+        },
+        "compile": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Abstractions/10.0.0-rc.1.25451.107": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Analyzers/10.0.0-rc.1.25451.107": {
+        "type": "package"
+      },
       "Microsoft.OpenApi/2.0.0": {
         "type": "package",
         "compile": {
@@ -35,6 +71,57 @@
           "lib/net8.0/Microsoft.OpenApi.dll": {
             "related": ".pdb;.xml"
           }
+        }
+      },
+      "FastTrack.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "Shared.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FastTrack.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FastTrack.Core.dll": {}
+        }
+      },
+      "FastTrack.Persistence/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "FastTrack.Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "10.0.0-rc.1.25451.107",
+          "Shared.Abstractions": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FastTrack.Persistence.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FastTrack.Persistence.dll": {}
+        }
+      },
+      "FastTrack.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "FastTrack.Persistence": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FastTrack.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FastTrack.Repository.dll": {}
+        }
+      },
+      "Shared.Abstractions/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Shared.Abstractions.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shared.Abstractions.dll": {}
         }
       }
     }
@@ -58,6 +145,51 @@
         "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
+    "Microsoft.EntityFrameworkCore/10.0.0-rc.1.25451.107": {
+      "sha512": "tE6qyRUFoVI+5HmJy5oGyPRvv4SfJH/jpDb94b40MxnNQhRtkIDQUuinWfMd8B2YAgXtVXANBNWjQ3ojsW/1Wg==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore/10.0.0-rc.1.25451.107",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "buildTransitive/net10.0/Microsoft.EntityFrameworkCore.props",
+        "lib/net10.0/Microsoft.EntityFrameworkCore.dll",
+        "lib/net10.0/Microsoft.EntityFrameworkCore.xml",
+        "microsoft.entityframeworkcore.10.0.0-rc.1.25451.107.nupkg.sha512",
+        "microsoft.entityframeworkcore.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Abstractions/10.0.0-rc.1.25451.107": {
+      "sha512": "447K5zsovuadqFj8k9nOXiD4bI+iCwteVYp2BUys9CFhnOi42VVDzXzTzrMK1bLhfyawk6X3ZP1sKD0lodTToA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.abstractions/10.0.0-rc.1.25451.107",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
+        "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
+        "microsoft.entityframeworkcore.abstractions.10.0.0-rc.1.25451.107.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.Analyzers/10.0.0-rc.1.25451.107": {
+      "sha512": "9iNDa8n9neV+SnjMx8FnaOTwpuyuQg/LMiOSEiJbCSHsb66qLbOCJ3HtMm9nh6TXabYdq3ysUC4y2StYB7+6hA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.analyzers/10.0.0-rc.1.25451.107",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
+        "docs/PACKAGE.md",
+        "microsoft.entityframeworkcore.analyzers.10.0.0-rc.1.25451.107.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.nuspec"
+      ]
+    },
     "Microsoft.OpenApi/2.0.0": {
       "sha512": "GGYLfzV/G/ct80OZ45JxnWP7NvMX1BCugn/lX7TH5o0lcVaviavsLMTxmFV2AybXWjbi3h6FF1vgZiTK6PXndw==",
       "type": "package",
@@ -75,10 +207,31 @@
         "microsoft.openapi.2.0.0.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "FastTrack.Core/1.0.0": {
+      "type": "project",
+      "path": "../FastTrack.Core/FastTrack.Core.csproj",
+      "msbuildProject": "../FastTrack.Core/FastTrack.Core.csproj"
+    },
+    "FastTrack.Persistence/1.0.0": {
+      "type": "project",
+      "path": "../FastTrack.Persistence/FastTrack.Persistence.csproj",
+      "msbuildProject": "../FastTrack.Persistence/FastTrack.Persistence.csproj"
+    },
+    "FastTrack.Repository/1.0.0": {
+      "type": "project",
+      "path": "../FastTrack.Repository/FastTrack.Repository.csproj",
+      "msbuildProject": "../FastTrack.Repository/FastTrack.Repository.csproj"
+    },
+    "Shared.Abstractions/1.0.0": {
+      "type": "project",
+      "path": "../Shared.Abstractions/Shared.Abstractions.csproj",
+      "msbuildProject": "../Shared.Abstractions/Shared.Abstractions.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "FastTrack.Repository >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.0-rc.1.25451.107"
     ]
   },
@@ -114,7 +267,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Workspace\\FastTrack\\FastTrack.Repository\\FastTrack.Repository.csproj": {
+              "projectPath": "C:\\Workspace\\FastTrack\\FastTrack.Repository\\FastTrack.Repository.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -1,4 +1,5 @@
-﻿using FastTrack.Core.Entities;
+﻿using System.Reflection;
+using FastTrack.Core.Entities;
 using FastTrack.Persistence.Extensions;
 using FastTrack.Persistence.Models;
 
@@ -10,7 +11,7 @@ public static class KioskMapper
     {
         Kiosk kiosk = (Kiosk)Activator.CreateInstance(
             typeof(Kiosk),
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance,
+            BindingFlags.NonPublic | BindingFlags.Instance,
             null, null, null)!;
 
         kiosk.SetPrivateProperty(nameof(Kiosk.Id), entity.Id);
@@ -24,9 +25,10 @@ public static class KioskMapper
 
         return kiosk;
     }
-    
+
     public static KioskModel MapToModel(this Kiosk entity)
-        => new()
+    {
+        return new KioskModel
         {
             Id = entity.Id,
             Name = entity.Name,
@@ -37,4 +39,5 @@ public static class KioskMapper
             LastUpdate = entity.LastUpdate,
             UpdatedBy = entity.UpdatedBy
         };
+    }
 }

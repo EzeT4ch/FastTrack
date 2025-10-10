@@ -1,4 +1,5 @@
-﻿using FastTrack.Core.Entities;
+﻿using System.Reflection;
+using FastTrack.Core.Entities;
 using FastTrack.Persistence.Extensions;
 using FastTrack.Persistence.Models;
 
@@ -10,10 +11,10 @@ public static class OrderDetailMapper
     {
         OrderDetail entity = (OrderDetail)Activator.CreateInstance(
             typeof(OrderDetail),
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance,
+            BindingFlags.NonPublic | BindingFlags.Instance,
             null, null, null)!;
-        
-        
+
+
         entity.SetPrivateProperty(nameof(OrderDetail.Id), model.Id);
         entity.SetPrivateProperty(nameof(OrderDetail.PurchaseOrderId), model.PurchaseOrderId);
         entity.SetPrivateProperty(nameof(OrderDetail.ProductId), model.ProductId);
@@ -23,12 +24,13 @@ public static class OrderDetailMapper
         entity.SetPrivateProperty(nameof(OrderDetail.AddedBy), model.AddedBy);
         entity.SetPrivateProperty(nameof(OrderDetail.LastUpdate), model.LastUpdate);
         entity.SetPrivateProperty(nameof(OrderDetail.UpdatedBy), model.UpdatedBy);
-        
+
         return entity;
     }
 
     public static OrderDetailModel ToModel(this OrderDetail entity)
-        => new()
+    {
+        return new OrderDetailModel
         {
             Id = entity.Id,
             PurchaseOrderId = entity.PurchaseOrderId,
@@ -40,4 +42,5 @@ public static class OrderDetailMapper
             LastUpdate = entity.LastUpdate,
             UpdatedBy = entity.UpdatedBy
         };
+    }
 }

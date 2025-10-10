@@ -10,30 +10,26 @@ public class PurchaseOrderModel
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
-    
-    [Required]
-    [MaxLength(50)]
-    public string ExternalOrderkey { get; private set; }
-    
-    public SimpleStatus Status { get; private set; }
-    
-    [Required]
-    public int TotalLines { get; private set; }
-        
-    [Required]
-    public int TotalQuantity { get; private set; }
 
-    [Required]
-    public int KioskId { get; private set; }
-        
-    public DateTime DateAdded { get; private set; } = DateTime.Now;
-        
-    public int AddedBy { get; private set; }
-        
-    public DateTime LastUpdate { get; private set; }
-        
-    public int UpdatedBy { get; private set; }
+    [Required] [MaxLength(50)] public string ExternalOrderkey { get;  set; }
 
-    [ForeignKey(nameof(KioskId))]
-    public virtual KioskModel Kiosk { get; private set; }
+    public SimpleStatus Status { get;  set; }
+
+    [Required] public int TotalLines { get;  set; }
+
+    [Required] public int TotalQuantity { get;  set; }
+
+    [Required] public int KioskId { get;  set; }
+
+    public DateTime DateAdded { get;  set; } = DateTime.Now;
+
+    public int AddedBy { get;  set; }
+
+    public DateTime LastUpdate { get;  set; }
+
+    public int UpdatedBy { get;  set; }
+
+    [ForeignKey(nameof(KioskId))] public virtual KioskModel Kiosk { get;  set; }
+
+    public virtual ICollection<OrderDetailModel> OrderDetails { get;  set; } = [];
 }
