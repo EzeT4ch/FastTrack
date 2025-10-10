@@ -87,6 +87,7 @@ public class UnitOfWork : IUnitOfWork
 
         _transaction = await _context.Database.BeginTransactionAsync(IsolationLevel.Serializable, cancellationToken);
     }
+
     public void Dispose()
     {
         _transaction?.Dispose();

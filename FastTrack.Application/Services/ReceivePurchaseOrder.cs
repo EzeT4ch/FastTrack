@@ -15,17 +15,6 @@ public class ReceivePurchaseOrder(
     IRepository<CurrentInventoryModel, CurrentInventory> inventories,
     IUnitOfWork uow)
 {
-    private static readonly AsyncRetryPolicy RetryPolicy = Policy
-        .Handle<DbUpdateConcurrencyException>()
-        .WaitAndRetryAsync(
-            retryCount: 3,
-            sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(100 * Math.Pow(2, attempt) + Random.Shared.Next(0, 50)),
-            onRetry: (ex, delay, attempt, ctx) =>
-            {
-                Console.WriteLine(
-                    $"[Resiliencia] Reintento {attempt} tras conflicto de concurrencia ({ex.Message}). Esperando {delay.TotalMilliseconds}ms.");
-            });
-    
     public async Task<Result<string, string>> ReceiveAsync(int orderId, int updatedBy, CancellationToken ct = default)
     {
         PurchaseOrder? order = await purchaseOrders.GetByIdAsync(
@@ -88,6 +77,4 @@ public class ReceivePurchaseOrder(
             return Result<string, string>.SetError($"Error al recibir orden: {ex.Message}");
         }
     }
-
-
 }
