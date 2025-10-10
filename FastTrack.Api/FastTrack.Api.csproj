@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\FastTrack.Application\FastTrack.Application.csproj" />
       <ProjectReference Include="..\FastTrack.Repository\FastTrack.Repository.csproj" />
     </ItemGroup>
 

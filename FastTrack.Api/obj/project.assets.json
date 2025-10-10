@@ -250,6 +250,23 @@
           }
         }
       },
+      "Microsoft.Extensions.Http.Polly/10.0.0-rc.1.25451.107": {
+        "type": "package",
+        "dependencies": {
+          "Polly": "7.2.4",
+          "Polly.Extensions.Http": "3.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Identity.Client/4.73.1": {
         "type": "package",
         "dependencies": {
@@ -416,6 +433,22 @@
           }
         }
       },
+      "Polly.Extensions.Http/3.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Polly": "7.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Polly.Extensions.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Polly.Extensions.Http.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.ClientModel/1.5.1": {
         "type": "package",
         "dependencies": {
@@ -522,6 +555,21 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
+      "FastTrack.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "FastTrack.Repository": "1.0.0",
+          "Microsoft.Extensions.Http.Polly": "10.0.0-rc.1.25451.107",
+          "Shared.Common": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/FastTrack.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FastTrack.Application.dll": {}
+        }
+      },
       "FastTrack.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -573,6 +621,16 @@
         },
         "runtime": {
           "bin/placeholder/Shared.Abstractions.dll": {}
+        }
+      },
+      "Shared.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Shared.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shared.Common.dll": {}
         }
       }
     }
@@ -852,6 +910,22 @@
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
+    "Microsoft.Extensions.Http.Polly/10.0.0-rc.1.25451.107": {
+      "sha512": "v3ObSZsPlhfxZ7SlPzpDOmrGyeOkgpnx0OtRxvU3l7Q9k6ITQcysoewfwQFRedEg32XzNQ9k+eQRVsmpcEX7fw==",
+      "type": "package",
+      "path": "microsoft.extensions.http.polly/10.0.0-rc.1.25451.107",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Http.Polly.xml",
+        "microsoft.extensions.http.polly.10.0.0-rc.1.25451.107.nupkg.sha512",
+        "microsoft.extensions.http.polly.nuspec"
+      ]
+    },
     "Microsoft.Identity.Client/4.73.1": {
       "sha512": "NnDLS8QwYqO5ZZecL2oioi1LUqjh5Ewk4bMLzbgiXJbQmZhDLtKwLxL3DpGMlQAJ2G4KgEnvGPKa+OOgffeJbw==",
       "type": "package",
@@ -1092,6 +1166,21 @@
         "polly.nuspec"
       ]
     },
+    "Polly.Extensions.Http/3.0.0": {
+      "sha512": "drrG+hB3pYFY7w1c3BD+lSGYvH2oIclH8GRSehgfyP5kjnFnHKQuuBhuHLv+PWyFuaTDyk/vfRpnxOzd11+J8g==",
+      "type": "package",
+      "path": "polly.extensions.http/3.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/Polly.Extensions.Http.dll",
+        "lib/netstandard1.1/Polly.Extensions.Http.xml",
+        "lib/netstandard2.0/Polly.Extensions.Http.dll",
+        "lib/netstandard2.0/Polly.Extensions.Http.xml",
+        "polly.extensions.http.3.0.0.nupkg.sha512",
+        "polly.extensions.http.nuspec"
+      ]
+    },
     "System.ClientModel/1.5.1": {
       "sha512": "k2jKSO0X45IqhVOT9iQB4xralNN9foRQsRvXBTyRpAVxyzCJlG895T9qYrQWbcJ6OQXxOouJQ37x5nZH5XKK+A==",
       "type": "package",
@@ -1259,6 +1348,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "FastTrack.Application/1.0.0": {
+      "type": "project",
+      "path": "../FastTrack.Application/FastTrack.Application.csproj",
+      "msbuildProject": "../FastTrack.Application/FastTrack.Application.csproj"
+    },
     "FastTrack.Core/1.0.0": {
       "type": "project",
       "path": "../FastTrack.Core/FastTrack.Core.csproj",
@@ -1278,10 +1372,16 @@
       "type": "project",
       "path": "../Shared.Abstractions/Shared.Abstractions.csproj",
       "msbuildProject": "../Shared.Abstractions/Shared.Abstractions.csproj"
+    },
+    "Shared.Common/1.0.0": {
+      "type": "project",
+      "path": "../Shared/Shared.Common/Shared.Common.csproj",
+      "msbuildProject": "../Shared/Shared.Common/Shared.Common.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "FastTrack.Application >= 1.0.0",
       "FastTrack.Repository >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.0-rc.1.25451.107"
     ]
@@ -1319,6 +1419,9 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Workspace\\FastTrack\\FastTrack.Application\\FastTrack.Application.csproj": {
+              "projectPath": "C:\\Workspace\\FastTrack\\FastTrack.Application\\FastTrack.Application.csproj"
+            },
             "C:\\Workspace\\FastTrack\\FastTrack.Repository\\FastTrack.Repository.csproj": {
               "projectPath": "C:\\Workspace\\FastTrack\\FastTrack.Repository\\FastTrack.Repository.csproj"
             }

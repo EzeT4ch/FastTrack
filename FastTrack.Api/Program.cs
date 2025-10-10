@@ -1,3 +1,4 @@
+using FastTrack.Api.Extensions;
 using FastTrack.Persistence;
 using FastTrack.Persistence.Extensions;
 using FastTrack.Persistence.Seed;
@@ -25,6 +26,8 @@ using (IServiceScope scope = app.Services.CreateScope())
         Console.WriteLine("[FastTrack] Seed de entorno de Test ejecutado correctamente ✅");
     }
 }
+
+app.MapEndpoints();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

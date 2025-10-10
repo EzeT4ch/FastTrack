@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FastTrack.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b12a40b877e11e2659d1e2ac72a157ad144c7ad3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7d9c0c51bfc17d92f96ca511fa49e42eab25c146")]
 [assembly: System.Reflection.AssemblyProductAttribute("FastTrack.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FastTrack.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
