@@ -66,14 +66,8 @@ public class ReceivePurchaseOrder(
             await uow.CommitAsync(ct);
             return Result<string, string>.SetSuccess("Orden recibida correctamente.");
         }
-        catch (DbUpdateConcurrencyException)
-        {
-            await uow.RollbackAsync(ct);
-            throw;
-        }
         catch(Exception ex)
         {
-            await uow.RollbackAsync(ct);
             return Result<string, string>.SetError($"Error al recibir orden: {ex.Message}");
         }
     }
