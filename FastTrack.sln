@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTrack.Persistence", "Fa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTrack.Repository", "FastTrack.Repository\FastTrack.Repository.csproj", "{9BBB8B8F-B3DE-4FD2-A712-02ACB156C591}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastTrack.Application", "FastTrack.Application\FastTrack.Application.csproj", "{32810C4B-B313-4F6A-B7A0-C1694462E109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{9BBB8B8F-B3DE-4FD2-A712-02ACB156C591}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BBB8B8F-B3DE-4FD2-A712-02ACB156C591}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BBB8B8F-B3DE-4FD2-A712-02ACB156C591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32810C4B-B313-4F6A-B7A0-C1694462E109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32810C4B-B313-4F6A-B7A0-C1694462E109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32810C4B-B313-4F6A-B7A0-C1694462E109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32810C4B-B313-4F6A-B7A0-C1694462E109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{3C51AA79-CA1B-43B0-99D9-9BF154951885} = {677067D1-CF85-4809-A950-949B54E45B91}
 		{76D6D501-AB0D-4482-8F25-401AA65ADD96} = {38626941-2791-4955-9624-017A26FFDD75}
 		{9BBB8B8F-B3DE-4FD2-A712-02ACB156C591} = {38626941-2791-4955-9624-017A26FFDD75}
+		{32810C4B-B313-4F6A-B7A0-C1694462E109} = {B8D01534-9EF8-45C0-A8DF-D1CA8F2D28CE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {33D77C73-BE2C-4DA5-8D1F-8486A8AC4559}

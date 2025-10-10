@@ -6,10 +6,6 @@ namespace FastTrack.Core.Entities;
 
 public class PurchaseOrder : IEntity, ICreatedAuditable, IUpdateAuditable
 {
-    private PurchaseOrder()
-    {
-    }
-
     private PurchaseOrder(string externalOrderKey, SimpleStatus status, int totalLines, int totalQuantity, int kioskId,
         int userId)
     {
@@ -39,9 +35,11 @@ public class PurchaseOrder : IEntity, ICreatedAuditable, IUpdateAuditable
     public int AddedBy { get; }
     public int Id { get; private set; }
 
-    public DateTime LastUpdate { get; }
+    public DateTime LastUpdate { get; private set; }
 
-    public int UpdatedBy { get; }
+    public int UpdatedBy { get; private set; }
+    
+    public virtual ICollection<OrderDetail> OrderDetails { get; private set; } = [];
 
     public static PurchaseOrder Create(string externalOrderKey, SimpleStatus status, int totalLines, int totalQuantity,
         int kioskId, int userId)
@@ -78,4 +76,28 @@ public class PurchaseOrder : IEntity, ICreatedAuditable, IUpdateAuditable
 
         return new PurchaseOrder(externalOrderKey.Trim(), status, totalLines, totalQuantity, kioskId, userId);
     }
+
+    public void AddDetail(OrderDetail orderDetail)
+    {
+        if(Status != SimpleStatus.Pendiente)
+        {
+            throw new DomainException("No se pueden agregar detalles a una orden que no está pendiente.", nameof(Status));
+        }
+        
+        OrderDetails.Add(orderDetail);
+    }
+    
+    public void MarkAsReceived(int userId)
+    {
+        if (Status != SimpleStatus.Pendiente)
+        {
+            throw new DomainException("Solo se pueden recibir órdenes que estén pendientes.", nameof(Status));
+        }
+
+        Status = SimpleStatus.Recibido;
+        LastUpdate = DateTime.UtcNow;
+        UpdatedBy = userId;
+    }
+    
+    public bool IsReceived() => Status == SimpleStatus.Recibido;
 }

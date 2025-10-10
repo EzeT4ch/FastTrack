@@ -14,3 +14,5 @@ C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persist
 C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\refint\FastTrack.Persistence.dll
 C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\FastTrack.Persistence.pdb
 C:\Workspace\FastTrack\FastTrack.Persistence\obj\Debug\net10.0\ref\FastTrack.Persistence.dll
+C:\Workspace\FastTrack\FastTrack.Persistence\bin\Debug\net10.0\FastTrack.Core.dll
+C:\Workspace\FastTrack\FastTrack.Persistence\bin\Debug\net10.0\FastTrack.Core.pdb
