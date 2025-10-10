@@ -104,6 +104,12 @@ public class FastTrackDbContext : DbContext
             .WithMany(p => p.InventoryMovements)
             .HasForeignKey(im => im.ProductId)
             .OnDelete(DeleteBehavior.NoAction);
+        
+        modelBuilder.Entity<InventoryMovementModel>()
+            .HasOne(im => im.Order)
+            .WithMany()
+            .HasForeignKey(im => im.OrderId)
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<CurrentInventoryModel>()
             .HasKey(ci => ci.Id);
@@ -116,13 +122,13 @@ public class FastTrackDbContext : DbContext
             .HasOne(ci => ci.Product)
             .WithMany()
             .HasForeignKey(ci => ci.ProductId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<CurrentInventoryModel>()
             .HasOne(ci => ci.Kiosk)
             .WithMany()
             .HasForeignKey(ci => ci.KioskId)
-            .OnDelete(DeleteBehavior.Cascade);
+            .OnDelete(DeleteBehavior.NoAction);
 
         modelBuilder.Entity<CurrentInventoryModel>()
             .Property(ci => ci.RowVersion)

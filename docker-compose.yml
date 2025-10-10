@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: fasttrack-sql
+    restart: unless-stopped
+    ports:
+      - "${MSSQL_PORT}:1433"
+    environment:
+      SA_PASSWORD: "${MSSQL_SA_PASSWORD}"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    volumes:
+      - fasttrack_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep sqlservr > /dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - fasttrack-net
+
+volumes:
+  fasttrack_data:
+
+networks:
+  fasttrack-net:
+    driver: bridge
