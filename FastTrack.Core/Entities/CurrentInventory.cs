@@ -31,9 +31,9 @@ public class CurrentInventory : IEntity, ICreatedAuditable, IUpdateAuditable
     public int AddedBy { get; }
     public int Id { get; private set; }
 
-    public DateTime LastUpdate { get; }
+    public DateTime LastUpdate { get; private set; }
 
-    public int UpdatedBy { get; }
+    public int UpdatedBy { get; private set; }
 
     public static CurrentInventory Create(int quantity, int productId, int kioskId, int addedBy)
     {
@@ -58,5 +58,22 @@ public class CurrentInventory : IEntity, ICreatedAuditable, IUpdateAuditable
         }
 
         return new CurrentInventory(quantity, productId, kioskId, addedBy);
+    }
+    
+    public void AddQuantity(int quantity, int userId)
+    {
+        if (quantity <= 0)
+        {
+            throw new DomainException("La cantidad a agregar debe ser mayor que cero.", nameof(quantity));
+        }
+
+        if (userId <= 0)
+        {
+            throw new DomainException("El usuario que actualiza debe ser válido.", nameof(userId));
+        }
+
+        Quantity += quantity;
+        LastUpdate = DateTime.UtcNow;
+        UpdatedBy = userId;
     }
 }

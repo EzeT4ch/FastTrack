@@ -11,6 +11,8 @@ public static class Startup
 {
     public static void AddRepositories(this IServiceCollection services)
     {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+
         services.AddRepository<CurrentInventoryModel, CurrentInventory>(CurrentInventoryMappers.ToDomain,
                 CurrentInventoryMappers.ToModel)
             .AddRepository<InventoryMovementModel, InventoryMovement>(InventoryMovementMapper.ToDomain,

@@ -5,16 +5,13 @@ namespace FastTrack.Core.Entities;
 
 public class OrderDetail : IEntity, ICreatedAuditable, IUpdateAuditable
 {
-    private OrderDetail()
-    {
-    }
-
-    private OrderDetail(int line, string skuCode, int purchaseOrderId, int productId, int userId)
+    private OrderDetail(int line, string skuCode, int purchaseOrderId, int productId, int userId, int quantity)
     {
         Line = line;
         SkuCode = skuCode;
         PurchaseOrderId = purchaseOrderId;
         ProductId = productId;
+        Quantity = quantity;
         DateAdded = DateTime.UtcNow;
         AddedBy = userId;
         LastUpdate = DateAdded;
@@ -25,13 +22,14 @@ public class OrderDetail : IEntity, ICreatedAuditable, IUpdateAuditable
     public string SkuCode { get; private set; }
     public int PurchaseOrderId { get; private set; }
     public int ProductId { get; private set; }
+    public int Quantity { get; private set; } = 1;
     public DateTime DateAdded { get; }
     public int AddedBy { get; }
     public int Id { get; private set; }
     public DateTime LastUpdate { get; }
     public int UpdatedBy { get; }
 
-    public static OrderDetail Create(int line, string skuCode, int purchaseOrderId, int productId, int userId)
+    public static OrderDetail Create(int line, string skuCode, int purchaseOrderId, int productId, int userId, int quantity = 1)
     {
         if (line <= 0)
         {
@@ -58,6 +56,11 @@ public class OrderDetail : IEntity, ICreatedAuditable, IUpdateAuditable
             throw new DomainException("El usuario creador debe ser válido.", nameof(userId));
         }
 
-        return new OrderDetail(line, skuCode.Trim(), purchaseOrderId, productId, userId);
+        if (quantity <= 0)
+        {
+            throw new DomainException("La cantidad debe ser mayor que cero.", nameof(quantity));
+        }
+        
+        return new OrderDetail(line, skuCode.Trim(), purchaseOrderId, productId, userId, quantity);
     }
 }

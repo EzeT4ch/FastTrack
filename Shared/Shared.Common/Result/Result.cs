@@ -3,10 +3,10 @@
 public class Result<T, E>
 {
     private Result(
-        E error, string message)
+        E error)
     {
         Error = error;
-        Message = message;
+        Message = string.Empty;
     }
 
     private Result(T data, string message = "")
@@ -21,9 +21,9 @@ public class Result<T, E>
     private bool IsSuccess => Error == null;
     public bool IsFailure => !IsSuccess;
 
-    public static Result<T, E> SetError(E error, string message)
+    public static Result<T, E> SetError(E error)
     {
-        return new Result<T, E>(error, message);
+        return new Result<T, E>(error);
     }
 
     public static Result<T, E> SetSuccess(T data, string message = "")
