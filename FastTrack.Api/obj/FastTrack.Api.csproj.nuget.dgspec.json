@@ -1254,6 +1254,10 @@
             "Microsoft.Extensions.DependencyInjection.Abstractions": {
               "target": "Package",
               "version": "[10.0.0-rc.1.25451.107, )"
+            },
+            "Polly": {
+              "target": "Package",
+              "version": "[7.2.4, )"
             }
           },
           "imports": [

@@ -124,5 +124,8 @@ public class FastTrackDbContext : DbContext
             .HasForeignKey(ci => ci.KioskId)
             .OnDelete(DeleteBehavior.Cascade);
 
+        modelBuilder.Entity<CurrentInventoryModel>()
+            .Property(ci => ci.RowVersion)
+            .IsRowVersion();
     }
 }

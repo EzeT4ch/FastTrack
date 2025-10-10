@@ -23,6 +23,9 @@ public class CurrentInventoryModel
     public DateTime LastUpdate { get; set; }
 
     public int UpdatedBy { get; set; }
+    
+    [Timestamp]
+    public byte[] RowVersion { get; set; } = [];
 
     [ForeignKey(nameof(KioskId))] public virtual KioskModel Kiosk { get; set; }
 

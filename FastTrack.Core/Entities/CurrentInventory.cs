@@ -1,14 +1,11 @@
-﻿using FastTrack.Core.Exceptions;
+﻿using System.ComponentModel.DataAnnotations;
+using FastTrack.Core.Exceptions;
 using Shared.Abstractions.Interfaces;
 
 namespace FastTrack.Core.Entities;
 
 public class CurrentInventory : IEntity, ICreatedAuditable, IUpdateAuditable
 {
-    private CurrentInventory()
-    {
-    }
-
     private CurrentInventory(int quantity, int productId, int kioskId, int addedBy)
     {
         Quantity = quantity;
