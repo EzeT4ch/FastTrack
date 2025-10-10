@@ -5,15 +5,12 @@ namespace FastTrack.Core.Entities;
 
 public class Kiosk : IEntity, ICreatedAuditable, IUpdateAuditable
 {
-    private Kiosk()
-    {
-    }
-
-    private Kiosk(string name, string email, string address, int userId)
+    private Kiosk(string name, string email, string address, int userId, string code)
     {
         Name = name;
         Email = email;
         Address = address;
+        Code = code;
         DateAdded = DateTime.UtcNow;
         AddedBy = userId;
         LastUpdate = DateAdded;
@@ -21,6 +18,8 @@ public class Kiosk : IEntity, ICreatedAuditable, IUpdateAuditable
     }
 
     public string Name { get; private set; }
+    
+    public string Code { get; private set; }
 
     public string Email { get; private set; }
 
@@ -35,7 +34,7 @@ public class Kiosk : IEntity, ICreatedAuditable, IUpdateAuditable
 
     public int UpdatedBy { get; }
 
-    public static Kiosk Create(string name, string email, string address, int userId)
+    public static Kiosk Create(string name, string email, string address, int userId, string code)
     {
         if (string.IsNullOrWhiteSpace(name))
         {
@@ -56,7 +55,12 @@ public class Kiosk : IEntity, ICreatedAuditable, IUpdateAuditable
         {
             throw new DomainException("El usuario creador debe ser válido.", nameof(userId));
         }
+        
+        if (string.IsNullOrWhiteSpace(code))
+        {
+            throw new DomainException("El código del kiosco no puede estar vacío.", nameof(code));
+        }
 
-        return new Kiosk(name.Trim(), email.Trim(), address.Trim(), userId);
+        return new Kiosk(name.Trim(), email.Trim(), address.Trim(), userId, code.Trim());
     }
 }

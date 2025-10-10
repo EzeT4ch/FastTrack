@@ -23,6 +23,10 @@ public class FastTrackDbContext : DbContext
 
         modelBuilder.Entity<KioskModel>()
             .HasKey(k => k.Id);
+        
+        modelBuilder.Entity<KioskModel>()
+            .HasIndex(k => k.Code)
+            .IsUnique();
 
         modelBuilder.Entity<KioskModel>()
             .HasMany(k => k.PurchaseOrders)
@@ -38,6 +42,12 @@ public class FastTrackDbContext : DbContext
 
         modelBuilder.Entity<PurchaseOrderModel>()
             .HasKey(po => po.Id);
+        
+        modelBuilder.Entity<PurchaseOrderModel>()
+            .HasIndex(po => new { po.KioskId, po.Status });
+
+        modelBuilder.Entity<PurchaseOrderModel>()
+            .HasIndex(po => po.DateAdded);
 
         modelBuilder.Entity<PurchaseOrderModel>()
             .HasMany(po => po.OrderDetails)
@@ -49,6 +59,9 @@ public class FastTrackDbContext : DbContext
             .HasKey(od => od.Id);
 
         modelBuilder.Entity<OrderDetailModel>()
+            .HasIndex(od => new { od.PurchaseOrderId, od.ProductId });
+        
+        modelBuilder.Entity<OrderDetailModel>()
             .HasOne(od => od.Product)
             .WithMany()
             .HasForeignKey(od => od.ProductId)
@@ -56,6 +69,13 @@ public class FastTrackDbContext : DbContext
 
         modelBuilder.Entity<ProductModel>()
             .HasKey(p => p.Id);
+        
+        modelBuilder.Entity<ProductModel>()
+            .HasIndex(p => p.Sku)
+            .IsUnique();
+
+        modelBuilder.Entity<ProductModel>()
+            .HasIndex(p => p.Name);
 
         modelBuilder.Entity<ProductModel>()
             .HasMany(p => p.InventoryMovements)
@@ -66,6 +86,12 @@ public class FastTrackDbContext : DbContext
         modelBuilder.Entity<InventoryMovementModel>()
             .HasKey(im => im.Id);
 
+        modelBuilder.Entity<InventoryMovementModel>()
+            .HasIndex(im => new { im.KioskId, im.ProductId });
+
+        modelBuilder.Entity<InventoryMovementModel>()
+            .HasIndex(im => new { im.ProductId, im.DateAdded });
+        
         modelBuilder.Entity<InventoryMovementModel>()
             .HasOne(im => im.Kiosk)
             .WithMany(k => k.InventoryMovements)
@@ -80,6 +106,10 @@ public class FastTrackDbContext : DbContext
 
         modelBuilder.Entity<CurrentInventoryModel>()
             .HasKey(ci => ci.Id);
+
+        modelBuilder.Entity<CurrentInventoryModel>()
+            .HasIndex(ci => new { ci.ProductId, ci.KioskId })
+            .IsUnique();
 
         modelBuilder.Entity<CurrentInventoryModel>()
             .HasOne(ci => ci.Product)

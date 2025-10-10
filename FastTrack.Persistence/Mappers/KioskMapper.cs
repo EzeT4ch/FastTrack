@@ -16,6 +16,7 @@ public static class KioskMapper
 
         kiosk.SetPrivateProperty(nameof(Kiosk.Id), entity.Id);
         kiosk.SetPrivateProperty(nameof(Kiosk.Name), entity.Name);
+        kiosk.SetPrivateProperty(nameof(Kiosk.Code), entity.Code);
         kiosk.SetPrivateProperty(nameof(Kiosk.Email), entity.Email);
         kiosk.SetPrivateProperty(nameof(Kiosk.Address), entity.Address);
         kiosk.SetPrivateProperty(nameof(Kiosk.DateAdded), entity.DateAdded);
@@ -32,6 +33,7 @@ public static class KioskMapper
         {
             Id = entity.Id,
             Name = entity.Name,
+            Code = entity.Code,
             Email = entity.Email,
             Address = entity.Address,
             DateAdded = entity.DateAdded,

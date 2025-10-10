@@ -16,7 +16,7 @@ public class Result<T, E>
     }
 
     public T? Data { get; private set; }
-    public E? Error { get; }
+        public E? Error { get; private set; }
     public string Message { get; private set; }
     private bool IsSuccess => Error == null;
     public bool IsFailure => !IsSuccess;
