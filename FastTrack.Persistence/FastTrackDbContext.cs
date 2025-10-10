@@ -1,4 +1,5 @@
 ﻿using FastTrack.Persistence.Models;
+using FastTrack.Persistence.Seed;
 using Microsoft.EntityFrameworkCore;
 
 namespace FastTrack.Persistence;
@@ -122,5 +123,6 @@ public class FastTrackDbContext : DbContext
             .WithMany()
             .HasForeignKey(ci => ci.KioskId)
             .OnDelete(DeleteBehavior.Cascade);
+
     }
 }
