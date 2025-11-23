@@ -11,7 +11,8 @@
           "FastTrack.Application": "1.0.0",
           "FastTrack.Repository": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "10.0.0-rc.1.25451.107",
-          "Microsoft.EntityFrameworkCore.Design": "10.0.0-rc.1.25451.107"
+          "Microsoft.EntityFrameworkCore.Design": "10.0.0-rc.1.25451.107",
+          "Shared.Cores": "1.0.0"
         },
         "runtime": {
           "FastTrack.Api.dll": {}
@@ -922,7 +923,8 @@
         "dependencies": {
           "FastTrack.Repository": "1.0.0",
           "Microsoft.Extensions.Http.Polly": "10.0.0-rc.1.25451.107",
-          "Shared.Common": "1.0.0"
+          "Shared.Common": "1.0.0",
+          "Shared.Cores": "1.0.0"
         },
         "runtime": {
           "FastTrack.Application.dll": {
@@ -979,6 +981,14 @@
       "Shared.Common/1.0.0": {
         "runtime": {
           "Shared.Common.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Shared.Cores/1.0.0": {
+        "runtime": {
+          "Shared.Cores.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1417,6 +1427,11 @@
       "sha512": ""
     },
     "Shared.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared.Cores/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

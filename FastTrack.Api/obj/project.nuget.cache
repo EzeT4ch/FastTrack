@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sXdz5weXb0U=",
+  "dgSpecHash": "anSikdkqFUM=",
   "success": true,
-  "projectFilePath": "C:\\Workspace\\FastTrack\\FastTrack.Api\\FastTrack.Api.csproj",
+  "projectFilePath": "C:\\Users\\brian\\OneDrive\\Escritorio\\FastTrack\\FastTrack.Api\\FastTrack.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brian\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\brian\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",
@@ -65,5 +65,30 @@
     "C:\\Users\\brian\\.nuget\\packages\\system.security.permissions\\9.0.0\\system.security.permissions.9.0.0.nupkg.sha512",
     "C:\\Users\\brian\\.nuget\\packages\\system.windows.extensions\\9.0.0\\system.windows.extensions.9.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"Microsoft.Build.Tasks.Core\" 17.14.8 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-w3q9-fxm7-j8fq",
+      "projectPath": "C:\\Users\\brian\\OneDrive\\Escritorio\\FastTrack\\FastTrack.Api\\FastTrack.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\brian\\OneDrive\\Escritorio\\FastTrack\\FastTrack.Api\\FastTrack.Api.csproj",
+      "libraryId": "Microsoft.Build.Tasks.Core",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "El paquete \"Microsoft.Build.Utilities.Core\" 17.14.8 tiene una vulnerabilidad de gravedad alta conocida, https://github.com/advisories/GHSA-w3q9-fxm7-j8fq",
+      "projectPath": "C:\\Users\\brian\\OneDrive\\Escritorio\\FastTrack\\FastTrack.Api\\FastTrack.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\brian\\OneDrive\\Escritorio\\FastTrack\\FastTrack.Api\\FastTrack.Api.csproj",
+      "libraryId": "Microsoft.Build.Utilities.Core",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

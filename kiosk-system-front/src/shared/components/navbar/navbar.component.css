@@ -1,0 +1,46 @@
+.navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.brand-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.brand-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.5px;
+}
+
+:host ::ng-deep {
+  .p-menubar {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.5rem 1rem;
+  }
+
+  .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+
+  .p-menubar-root-list > .p-menuitem > .p-menuitem-content .p-menuitem-link:hover {
+    background-color: var(--primary-50);
+  }
+}

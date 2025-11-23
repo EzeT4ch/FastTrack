@@ -1,4 +1,5 @@
 using FastTrack.Api.Extensions;
+using FastTrack.Application.Extensions;
 using FastTrack.Persistence;
 using FastTrack.Persistence.Extensions;
 using FastTrack.Persistence.Seed;
@@ -7,9 +8,20 @@ using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyAllowSpecificOrigins",
+                      policy =>
+                      {
+                          // REEMPLAZA ESTE ORIGEN CON EL PUERTO DE TU CLIENTE (e.g., Angular/React)
+                          policy.WithOrigins("http://localhost:4200",
+                                             "https://localhost:4200")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                      });
+});
 builder.Services.AddOpenApi();
+builder.Services.RegisterApplicationServices();
 
 builder.Services.AddPersistence(builder.Configuration.GetConnectionString("DefaultConnection")!);
 builder.Services.AddRepositories();
@@ -26,7 +38,7 @@ using (IServiceScope scope = app.Services.CreateScope())
         Console.WriteLine("[FastTrack] Seed de entorno de Test ejecutado correctamente ✅");
     }
 }
-
+app.UseCors("MyAllowSpecificOrigins");
 app.MapEndpoints();
 
 // Configure the HTTP request pipeline.

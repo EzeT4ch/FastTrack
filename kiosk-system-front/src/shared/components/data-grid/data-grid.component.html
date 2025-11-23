@@ -1,0 +1,159 @@
+<div class="data-grid-container">
+  @if (title() || showAddButton()) {
+    <div class="grid-header">
+      @if (title()) {
+        <h1 class="grid-title">{{ title() }}</h1>
+      }
+      <div class="grid-header-actions">
+        @if (hasFilters()) {
+          <p-button
+            label="Limpiar filtros"
+            icon="pi pi-filter-slash"
+            [outlined]="true"
+            severity="secondary"
+            size="small"
+            (onClick)="clearFilters()"
+          />
+        }
+        @if (hasSorting()) {
+          <p-button
+            label="Limpiar ordenamiento"
+            icon="pi pi-sort-alt-slash"
+            [outlined]="true"
+            severity="secondary"
+            size="small"
+            (onClick)="clearSort()"
+          />
+        }
+        @if (showAddButton()) {
+          <p-button
+            [label]="addButtonLabel()"
+            icon="pi pi-plus"
+            [raised]="true"
+            severity="primary"
+            (onClick)="onAddClick()"
+          />
+        }
+      </div>
+      @if (headerTemplate()) {
+        <ng-container [ngTemplateOutlet]="headerTemplate()!" />
+      }
+    </div>
+  }
+
+  <p-table
+    #dt
+    [value]="data()"
+    [columns]="columns()"
+    [loading]="loading()"
+    [paginator]="paginator()"
+    [rows]="rows()"
+    [showCurrentPageReport]="showCurrentPageReport()"
+    [currentPageReportTemplate]="currentPageReportTemplate()"
+    [rowsPerPageOptions]="rowsPerPageOptions()"
+    [globalFilterFields]="globalFilterFields()"
+    [styleClass]="striped() ? 'p-datatable-striped' : ''"
+    [tableStyle]="{ 'min-width': '60rem' }"
+    [lazy]="lazy()"
+    [totalRecords]="totalRecords()"
+    (onLazyLoad)="onLazyLoad($event)"
+    (onRowSelect)="onRowSelect($event)"
+    (onRowUnselect)="onRowUnselect($event)"
+  >
+    <ng-template #header>
+      <tr>
+        @for (column of columns(); track column.field) {
+          <th [pSortableColumn]="column.sortable !== false ? column.field : undefined">
+            {{ column.header }}
+            @if (column.sortable !== false) {
+              <p-sortIcon [field]="column.field" />
+            }
+          </th>
+        }
+        @if (actions().length > 0) {
+          <th style="width: 150px">Acciones</th>
+        }
+      </tr>
+      <tr>
+        @for (column of columns(); track column.field) {
+          <th>
+            @if (column.filterable !== false) {
+              @if (column.type === 'date') {
+                <p-datepicker
+                  [(ngModel)]="dateRanges()[column.field]"
+                  selectionMode="range"
+                  [showIcon]="true"
+                  [showButtonBar]="true"
+                  placeholder="Filtrar por rango"
+                  dateFormat="dd/mm/yy"
+                  (ngModelChange)="onDateFilterChange(column.field, $event); applyDateFilter(column.field)"
+                  [style]="{'width': '100%', 'min-width': '200px'}"
+                  appendTo="body"
+                />
+              } @else {
+                <input
+                  pInputText
+                  type="text"
+                  [placeholder]="'Buscar ' + column.header.toLowerCase()"
+                  [value]="currentGridRequest().Filters[column.field] || ''"
+                  (input)="onFilterChange(column.field, $any($event.target).value)"
+                  (keydown.enter)="applyFilters()"
+                  class="w-full"
+                />
+              }
+            }
+          </th>
+        }
+        @if (actions().length > 0) {
+          <th></th>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template #body let-row let-columns="columns">
+      <tr>
+        @for (column of columns; track column.field) {
+          <td>
+            @if (column.type === 'custom' && customColumnTemplate()) {
+              <ng-container
+                [ngTemplateOutlet]="customColumnTemplate()!"
+                [ngTemplateOutletContext]="{ $implicit: row, column: column }"
+              />
+            } @else {
+              {{ formatValue(row[column.field], column) }}
+            }
+          </td>
+        }
+        @if (actions().length > 0) {
+          <td>
+            <div class="action-buttons">
+              @for (action of actions(); track action.icon) {
+                @if (isActionVisible(action, row)) {
+                  <p-button
+                    [icon]="action.icon"
+                    [rounded]="true"
+                    [text]="true"
+                    [severity]="action.severity || 'secondary'"
+                    [pTooltip]="action.tooltip"
+                    (onClick)="executeAction(action, row)"
+                  />
+                }
+              }
+            </div>
+          </td>
+        }
+      </tr>
+    </ng-template>
+
+    <ng-template #emptymessage>
+      <tr>
+        <td [attr.colspan]="columns().length + (actions().length > 0 ? 1 : 0)" class="text-center">
+          <div class="empty-message">
+            <i class="pi pi-inbox"></i>
+            <p>{{ emptyMessage() }}</p>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

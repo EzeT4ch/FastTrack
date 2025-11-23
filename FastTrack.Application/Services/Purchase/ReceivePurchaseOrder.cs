@@ -3,11 +3,9 @@ using FastTrack.Core.Enums;
 using FastTrack.Persistence.Models;
 using FastTrack.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Polly;
-using Polly.Retry;
 using Shared.Common.Result;
 
-namespace FastTrack.Application.Services;
+namespace FastTrack.Application.Services.Purchase;
 
 public class ReceivePurchaseOrder(
     IRepository<PurchaseOrderModel, PurchaseOrder> purchaseOrders,
@@ -57,7 +55,7 @@ public class ReceivePurchaseOrder(
                 else
                 {
                     inventory.AddQuantity(detail.Quantity, detail.UpdatedBy);
-                    inventories.Update(inventory);
+                    inventories.Update(inventory, ct);
                 }
             }
 
@@ -66,7 +64,7 @@ public class ReceivePurchaseOrder(
             await uow.CommitAsync(ct);
             return Result<string, string>.SetSuccess("Orden recibida correctamente.");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return Result<string, string>.SetError($"Error al recibir orden: {ex.Message}");
         }

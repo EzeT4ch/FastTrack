@@ -1,0 +1,19 @@
+<div class="navbar-container">
+  <p-menubar [model]="menuItems()">
+    <ng-template #start>
+      <div class="navbar-brand" (click)="navigate('/')">
+        <i class="pi pi-bolt brand-icon"></i>
+        <span class="brand-text">FastTrack</span>
+      </div>
+    </ng-template>
+    <ng-template #end>
+      <p-button
+        icon="pi pi-user"
+        [rounded]="true"
+        [text]="true"
+        severity="secondary"
+        size="large"
+      />
+    </ng-template>
+  </p-menubar>
+</div>

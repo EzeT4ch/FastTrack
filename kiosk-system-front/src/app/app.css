@@ -1,0 +1,11 @@
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6;
+}
+
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+}

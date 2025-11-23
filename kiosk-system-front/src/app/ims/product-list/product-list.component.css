@@ -1,0 +1,62 @@
+.filters-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.card {
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 2rem;
+}
+
+:host ::ng-deep {
+  .p-datatable {
+    .p-datatable-header {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+    }
+
+    .p-datatable-thead > tr > th {
+      background: #f8f9fa;
+      color: #495057;
+      font-weight: 600;
+      border: 1px solid #e9ecef;
+      padding: 1rem;
+    }
+
+    .p-datatable-tbody > tr {
+      transition: background-color 0.2s;
+    }
+
+    .p-datatable-tbody > tr:hover {
+      background-color: #f8f9fa;
+    }
+
+    .p-datatable-tbody > tr > td {
+      border: 1px solid #e9ecef;
+      padding: 1rem;
+    }
+  }
+
+  .p-paginator {
+    border: 1px solid #e9ecef;
+    padding: 1rem;
+  }
+}

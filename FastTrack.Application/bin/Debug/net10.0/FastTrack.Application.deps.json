@@ -10,7 +10,8 @@
         "dependencies": {
           "FastTrack.Repository": "1.0.0",
           "Microsoft.Extensions.Http.Polly": "10.0.0-rc.1.25451.107",
-          "Shared.Common": "1.0.0"
+          "Shared.Common": "1.0.0",
+          "Shared.Cores": "1.0.0"
         },
         "runtime": {
           "FastTrack.Application.dll": {}
@@ -653,6 +654,14 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "Shared.Cores/1.0.0": {
+        "runtime": {
+          "Shared.Cores.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -991,6 +1000,11 @@
       "sha512": ""
     },
     "Shared.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared.Cores/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

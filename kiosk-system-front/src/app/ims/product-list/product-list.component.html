@@ -1,0 +1,37 @@
+<app-data-grid
+  [data]="products()"
+  [columns]="columns"
+  [loading]="loading()"
+  [title]="'Lista de Productos'"
+  [addButtonLabel]="'Nuevo Producto'"
+  [actions]="actions"
+  [lazy]="true"
+  [totalRecords]="totalRecords()"
+  (addClick)="onAddProduct()"
+  (lazyLoad)="onLazyLoad($event)"
+>
+  <ng-template #headerTemplate>
+    <div class="filters-container">
+      <div class="filter-item">
+        <label for="kioskSelect" class="filter-label">Kiosk:</label>
+        <p-select
+          inputId="kioskSelect"
+          [options]="kiosks()"
+          [(ngModel)]="selectedKioskId"
+          optionLabel="name"
+          optionValue="id"
+          placeholder="Todos los kiosks"
+          [showClear]="true"
+          (onChange)="onKioskChange($event.value)"
+          [style]="{'min-width': '250px'}"
+        />
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #customColumn let-row let-column="column">
+    @if (column.field === 'status') {
+    <p-tag [value]="getStatusLabel(row.status)" [severity]="getStatusSeverity(row.status)" />
+    }
+  </ng-template>
+</app-data-grid>

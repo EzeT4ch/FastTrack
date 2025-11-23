@@ -1,8 +1,8 @@
-﻿using FastTrack.Application.Services;
+﻿using FastTrack.Application.Services.Purchase;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Shared.Common.Result;
 
-namespace FastTrack.Api.Endpoints;
+namespace FastTrack.Api.Endpoints.Purchase;
 
 public class ReceivePurchaseOrderEndpoint : IEndpoint
 {
@@ -10,8 +10,7 @@ public class ReceivePurchaseOrderEndpoint : IEndpoint
     {
         app.MapPost("/api/purchaseorders/{orderId:int}/receive", HandleAsync)
             .WithName("ReceivePurchaseOrder")
-            .WithTags("PurchaseOrders")
-            .WithOpenApi();
+            .WithTags("PurchaseOrders");
     }
     
     private static async Task<Results<Ok<string>, NotFound<string>, Conflict<string>, BadRequest<string>>> HandleAsync(

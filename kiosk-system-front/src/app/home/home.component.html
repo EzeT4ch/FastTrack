@@ -1,0 +1,72 @@
+<div class="home-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <i class="pi pi-bolt"></i>
+        Bienvenido a FastTrack
+      </h1>
+      <p class="hero-description">
+        Sistema de gestión de inventario y kioscos. Administra productos, órdenes y reportes de manera eficiente.
+      </p>
+    </div>
+  </div>
+
+  <div class="quick-access-section">
+    <h2 class="section-title">Acceso Rápido</h2>
+    <div class="cards-grid">
+      @for (card of quickAccessCards(); track card.route) {
+        <p-card class="access-card" [style]="{'border-top': '4px solid ' + card.color}">
+          <ng-template #header>
+            <div class="card-icon-container" [style]="{'background-color': card.color + '20'}">
+              <i class="pi {{ card.icon }}" [style]="{'color': card.color}"></i>
+            </div>
+          </ng-template>
+          <div class="card-content">
+            <h3 class="card-title">{{ card.title }}</h3>
+            <p class="card-description">{{ card.description }}</p>
+          </div>
+          <ng-template #footer>
+            <p-button
+              label="Acceder"
+              icon="pi pi-arrow-right"
+              [outlined]="true"
+              [style]="{'width': '100%'}"
+              (onClick)="navigateTo(card.route)"
+            />
+          </ng-template>
+        </p-card>
+      }
+    </div>
+  </div>
+
+  <div class="stats-section">
+    <div class="stat-card">
+      <i class="pi pi-box stat-icon"></i>
+      <div class="stat-content">
+        <h3 class="stat-number">1,234</h3>
+        <p class="stat-label">Productos</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <i class="pi pi-building stat-icon"></i>
+      <div class="stat-content">
+        <h3 class="stat-number">45</h3>
+        <p class="stat-label">Kioscos</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <i class="pi pi-shopping-cart stat-icon"></i>
+      <div class="stat-content">
+        <h3 class="stat-number">789</h3>
+        <p class="stat-label">Órdenes</p>
+      </div>
+    </div>
+    <div class="stat-card">
+      <i class="pi pi-chart-line stat-icon"></i>
+      <div class="stat-content">
+        <h3 class="stat-number">$125K</h3>
+        <p class="stat-label">Ventas</p>
+      </div>
+    </div>
+  </div>
+</div>

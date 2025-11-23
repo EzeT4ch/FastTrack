@@ -1,4 +1,8 @@
-﻿using FastTrack.Core.Enums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using FastTrack.Core.Enums;
 using Microsoft.EntityFrameworkCore;
 using FastTrack.Persistence.Models;
 using Shared.Abstractions.Enums;
@@ -17,74 +21,97 @@ public static class FastTrackDbSeeder
         KioskModel[] kiosks = Enumerable.Range(1, 5)
             .Select(i => new KioskModel
             {
-                Id = i,
                 Code = $"KIOSK-{i:D2}",
-                Name = $"Kiosk #{i}"
+                Name = $"Kiosk #{i}",
+                Email = $"kiosk{i}@example.com",
+                Address = $"Address {i}"
             }).ToArray();
         await context.Kiosks.AddRangeAsync(kiosks);
+        await context.SaveChangesAsync(); // obtener Ids generados por la BD
 
         // --- Products ---
         ProductModel[] products = Enumerable.Range(1, 10)
             .Select(i => new ProductModel
             {
-                Id = i,
+                KioskId = kiosks[(i - 1) % kiosks.Length].Id,
                 Sku = $"SKU-{i:D3}",
-                Name = $"Product {i}"
+                Name = $"Product {i}",
+                Status = 1
             }).ToArray();
         await context.Products.AddRangeAsync(products);
+        await context.SaveChangesAsync();
 
         // --- Purchase Orders ---
         PurchaseOrderModel[] purchaseOrders = Enumerable.Range(1, 20)
             .Select(i => new PurchaseOrderModel
             {
-                Id = i,
-                KioskId = (i % 5) + 1,
+                KioskId = kiosks[(i - 1) % kiosks.Length].Id,
+                ExternalOrderkey = $"PO-{i:D5}",
                 Status = i <= 10 ? SimpleStatus.Pendiente : SimpleStatus.Recibido,
-                DateAdded = DateTime.UtcNow.AddDays(-i)
+                DateAdded = DateTime.UtcNow.AddDays(-i),
+                TotalLines = 0,
+                TotalQuantity = 0
             }).ToArray();
         await context.PurchaseOrders.AddRangeAsync(purchaseOrders);
+        await context.SaveChangesAsync();
 
         // --- Order Details ---
         List<OrderDetailModel> details = new List<OrderDetailModel>();
-        int detailId = 1;
         foreach (PurchaseOrderModel po in purchaseOrders)
         {
-            int items = po.Id % 3 + 2;
+            int items = (po.Id % 3) + 2;
             for (int j = 0; j < items; j++)
             {
-                int productId = ((po.Id + j) % 10) + 1;
+                var product = products[((po.Id + j - 1) % products.Length)];
+                int quantity = ((j + 1) % 5) + 1;
                 details.Add(new OrderDetailModel
                 {
-                    Id = detailId++,
                     PurchaseOrderId = po.Id,
-                    ProductId = productId,
+                    ProductId = product.Id,
                     Line = j + 1,
-                    SkuCode = $"SKU-{productId:D3}"
+                    Quantity = quantity,
+                    SkuCode = product.Sku
                 });
+
+                po.TotalLines += 1;
+                po.TotalQuantity += quantity;
             }
         }
         await context.OrderDetails.AddRangeAsync(details);
+        context.PurchaseOrders.UpdateRange(purchaseOrders);
+        await context.SaveChangesAsync();
 
         // --- Current Inventories ---
-        List<CurrentInventoryModel> inventories = [];
-        int invId = 1;
-        inventories.AddRange(from kiosk in kiosks from product in products select new CurrentInventoryModel { Id = invId++, KioskId = kiosk.Id, ProductId = product.Id, Quantity = (kiosk.Id * 5 + product.Id) % 30 + 5 });
+        List<CurrentInventoryModel> inventories = new List<CurrentInventoryModel>();
+        foreach (var kiosk in kiosks)
+        {
+            foreach (var product in products)
+            {
+                inventories.Add(new CurrentInventoryModel
+                {
+                    KioskId = kiosk.Id,
+                    ProductId = product.Id,
+                    Quantity = (kiosk.Id * 5 + product.Id) % 30 + 5
+                });
+            }
+        }
         await context.CurrentInventories.AddRangeAsync(inventories);
+        await context.SaveChangesAsync();
 
         // --- Inventory Movements ---
-        int movId = 1;
         List<InventoryMovementModel> movements = (from po in purchaseOrders.Where(p => p.Status == SimpleStatus.Recibido)
-        let relatedDetails = details.Where(d => d.PurchaseOrderId == po.Id)
-        from d in relatedDetails
-        select new InventoryMovementModel
-        {
-            Id = movId++,
-            ProductId = d.ProductId,
-            KioskId = po.KioskId,
-            DateAdded = po.DateAdded.AddHours(2),
-            Quantity = 5,
-            InventoryMovementType = (int)InventoryMovementType.In
-        }).ToList();
+                                                 let relatedDetails = details.Where(d => d.PurchaseOrderId == po.Id)
+                                                 from d in relatedDetails
+                                                 select new InventoryMovementModel
+                                                 {
+                                                     ProductId = d.ProductId,
+                                                     KioskId = po.KioskId,
+                                                     OrderId = po.Id,
+                                                     DateAdded = po.DateAdded.AddHours(2),
+                                                     Quantity = d.Quantity,
+                                                     InventoryMovementType = (int)InventoryMovementType.In,
+                                                     SkuCode = d.SkuCode
+                                                 }).ToList();
         await context.InventoryMovements.AddRangeAsync(movements);
 
         await context.SaveChangesAsync();
