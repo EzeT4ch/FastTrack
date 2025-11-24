@@ -88,6 +88,46 @@
         }
       }
     },
+    "/api/kiosks": {
+      "post": {
+        "tags": [
+          "Kiosks"
+        ],
+        "operationId": "GetKiosks",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GridRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GridResponseOfKioskResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/products": {
       "post": {
         "tags": [
@@ -178,6 +218,29 @@
           }
         }
       },
+      "GridResponseOfKioskResponse": {
+        "required": [
+          "totalRecords",
+          "values"
+        ],
+        "type": "object",
+        "properties": {
+          "totalRecords": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KioskResponse"
+            }
+          }
+        }
+      },
       "GridResponseOfProductResponse": {
         "required": [
           "totalRecords",
@@ -198,6 +261,55 @@
             "items": {
               "$ref": "#/components/schemas/ProductResponse"
             }
+          }
+        }
+      },
+      "KioskResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "dateAdded": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "addedBy": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "lastUpdate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedBy": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
           }
         }
       },
@@ -265,6 +377,9 @@
   "tags": [
     {
       "name": "PurchaseOrders"
+    },
+    {
+      "name": "Kiosks"
     },
     {
       "name": "Products"

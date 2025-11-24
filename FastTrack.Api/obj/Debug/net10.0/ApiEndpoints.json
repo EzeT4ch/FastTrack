@@ -1,5 +1,40 @@
 [
   {
+    "ContainingType": "FastTrack.Api.Endpoints.Kiosk.GetKiosksEndpoints",
+    "Method": "HandleAsync",
+    "RelativePath": "api/kiosks",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Shared.Cores.Grid.GridRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Shared.Cores.Grid.GridResponse\u00601[[Shared.Cores.Response.Kiosk.KioskResponse, Shared.Cores, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "Tags": [
+      "Kiosks"
+    ],
+    "EndpointName": "GetKiosks"
+  },
+  {
     "ContainingType": "FastTrack.Api.Endpoints.Inventory.GetProductsEndpoint",
     "Method": "HandleAsync",
     "RelativePath": "api/products",

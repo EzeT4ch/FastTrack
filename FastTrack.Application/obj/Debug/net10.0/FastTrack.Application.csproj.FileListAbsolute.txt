@@ -28,9 +28,6 @@ C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrack.Application.AssemblyInfo.cs
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrack.Application.csproj.CoreCompileInputs.cache
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrack.Application.sourcelink.json
-C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrack.Application.dll
-C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\refint\FastTrack.Application.dll
-C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrack.Application.pdb
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\bin\Debug\net10.0\FastTrack.Application.deps.json
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\bin\Debug\net10.0\FastTrack.Application.dll
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\bin\Debug\net10.0\FastTrack.Application.pdb
@@ -47,4 +44,7 @@ C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\bin\Debug\net
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\bin\Debug\net10.0\FastTrack.Persistence.pdb
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\bin\Debug\net10.0\Shared.Abstractions.pdb
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrac.6F850DDA.Up2Date
+C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrack.Application.dll
+C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\refint\FastTrack.Application.dll
+C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\FastTrack.Application.pdb
 C:\Users\brian\OneDrive\Escritorio\FastTrack\FastTrack.Application\obj\Debug\net10.0\ref\FastTrack.Application.dll
