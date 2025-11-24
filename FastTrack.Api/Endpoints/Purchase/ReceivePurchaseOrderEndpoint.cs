@@ -1,5 +1,6 @@
 ﻿using FastTrack.Application.Services.Purchase;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Shared.Common.Result;
 
 namespace FastTrack.Api.Endpoints.Purchase;
@@ -15,8 +16,8 @@ public class ReceivePurchaseOrderEndpoint : IEndpoint
     
     private static async Task<Results<Ok<string>, NotFound<string>, Conflict<string>, BadRequest<string>>> HandleAsync(
         int orderId,
-        int userId,
-        ReceivePurchaseOrder service,
+        [FromBody] int userId,
+        [FromServices] ReceivePurchaseOrder service,
         CancellationToken ct)
     {
         Result<string, string> result = await service.ReceiveAsync(orderId, userId, ct);

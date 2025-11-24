@@ -1,5 +1,4 @@
 ﻿using FastTrack.Persistence.Models;
-using FastTrack.Persistence.Seed;
 using Microsoft.EntityFrameworkCore;
 
 namespace FastTrack.Persistence;
