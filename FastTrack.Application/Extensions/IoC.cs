@@ -1,9 +1,7 @@
-﻿using FastTrack.Application.Services.Product;
+﻿using FastTrack.Application.Services.Kiosk;
+using FastTrack.Application.Services.Product;
 using FastTrack.Application.Services.Purchase;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FastTrack.Application.Extensions
 {
@@ -13,6 +11,7 @@ namespace FastTrack.Application.Extensions
         {
             services.AddScoped<ReceivePurchaseOrder>();
             services.AddScoped<GetProductService>();
+            services.AddScoped<GetKiosksService>();
         }
     }
 }

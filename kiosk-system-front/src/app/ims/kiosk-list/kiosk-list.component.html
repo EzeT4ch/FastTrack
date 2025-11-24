@@ -1,0 +1,13 @@
+<app-data-grid
+  [data]="kiosks()"
+  [columns]="columns"
+  [loading]="loading()"
+  [title]="'Gestión de Kioscos'"
+  [addButtonLabel]="'Nuevo Kiosk'"
+  [actions]="actions"
+  [lazy]="true"
+  [totalRecords]="totalRecords()"
+  (addClick)="onAddKiosk()"
+  (lazyLoad)="onLazyLoad($event)"
+>
+</app-data-grid>

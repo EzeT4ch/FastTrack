@@ -21,7 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Endpoints\Kiosk\" />
       <Folder Include="Endpoints\System\" />
       <Folder Include="Endpoints\Sales\" />
     </ItemGroup>
