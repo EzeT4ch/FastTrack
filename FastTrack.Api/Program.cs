@@ -2,7 +2,6 @@ using FastTrack.Api.Extensions;
 using FastTrack.Application.Extensions;
 using FastTrack.Persistence;
 using FastTrack.Persistence.Extensions;
-using FastTrack.Persistence.Seed;
 using FastTrack.Repository.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,6 +45,19 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.MapGet("/", async () =>
+{
+    using (IServiceScope scope = app.Services.CreateScope())
+    {
+        var context = scope.ServiceProvider.GetRequiredService<FastTrackDbContext>();
+        await context.Database.MigrateAsync();
+
+
+        await FastTrackDbSeeder.SeedAsync(context);
+        Console.WriteLine($"[FastTrack] Seed ejecutado en entorno {app.Environment.EnvironmentName} ✅");
+    }
+});
 
 app.UseHttpsRedirection();
 
