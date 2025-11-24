@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FastTrack.Persistence")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd233514e91ed217e53a92b0edf09b9791c619d6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a8a8b05e21ac354242e23cb38764854f4187818")]
 [assembly: System.Reflection.AssemblyProductAttribute("FastTrack.Persistence")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FastTrack.Persistence")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
