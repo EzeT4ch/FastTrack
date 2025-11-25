@@ -10,8 +10,10 @@ public class Product : IEntity, ICreatedAuditable, IUpdateAuditable
     {
     }
 
-    private Product(int kioskId, string skuCode, SimpleStatus status, int userId)
+    private Product(int kioskId, string skuCode, SimpleStatus status, int userId, int price, string description)
     {
+        Price = price;
+        Description = description;
         KioskId = kioskId;
         SkuCode = skuCode;
         Status = status;
@@ -34,11 +36,15 @@ public class Product : IEntity, ICreatedAuditable, IUpdateAuditable
     public int AddedBy { get; }
     public int Id { get; private set; }
 
+    public int Price { get; private set; }
+
+    public string Description { get; private set; }
+
     public DateTime LastUpdate { get; }
 
     public int UpdatedBy { get; }
 
-    public static Product Create(int kioskId, string skuCode, SimpleStatus status, int userId)
+    public static Product Create(int kioskId, string skuCode, SimpleStatus status, int userId, int price, string description)
     {
         if (kioskId <= 0)
         {
@@ -60,6 +66,6 @@ public class Product : IEntity, ICreatedAuditable, IUpdateAuditable
             throw new DomainException("El usuario creador debe ser válido.", nameof(userId));
         }
 
-        return new Product(kioskId, skuCode.Trim(), status, userId);
+        return new Product(kioskId, skuCode.Trim(), status, userId, price, description);
     }
 }

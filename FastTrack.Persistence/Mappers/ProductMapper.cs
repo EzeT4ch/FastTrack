@@ -22,6 +22,8 @@ public static class ProductMapper
         entity.SetPrivateProperty(nameof(Product.AddedBy), model.AddedBy);
         entity.SetPrivateProperty(nameof(Product.LastUpdate), model.LastUpdate);
         entity.SetPrivateProperty(nameof(Product.UpdatedBy), model.UpdatedBy);
+        entity.SetPrivateProperty(nameof(Product.Price), model.Price);
+        entity.SetPrivateProperty(nameof(Product.Description), model.Description);
 
         return entity;
     }
@@ -38,7 +40,9 @@ public static class ProductMapper
             DateAdded = entity.DateAdded,
             AddedBy = entity.AddedBy,
             LastUpdate = entity.LastUpdate,
-            UpdatedBy = entity.UpdatedBy
+            UpdatedBy = entity.UpdatedBy,
+            Description = entity.Description,
+            Price = entity.Price,
         };
     }
 }

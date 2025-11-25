@@ -18,9 +18,7 @@ namespace FastTrack.Api.Endpoints.Kiosk
             GridResponse<KioskResponse> result = await getKiosksService.Execute(request, cToken);
 
             if (result.TotalRecords == 0)
-            {
                 return TypedResults.NotFound("No products found.");
-            }
 
             return TypedResults.Ok(result);
         }

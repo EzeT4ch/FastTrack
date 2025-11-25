@@ -12,6 +12,8 @@ namespace FastTrack.Application.Extensions
             services.AddScoped<ReceivePurchaseOrder>();
             services.AddScoped<GetProductService>();
             services.AddScoped<GetKiosksService>();
+            services.AddScoped<CreateProductService>();
+            services.AddScoped<GetKiosksLabelService>();
         }
     }
 }

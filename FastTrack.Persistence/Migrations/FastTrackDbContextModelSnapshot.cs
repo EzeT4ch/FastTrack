@@ -241,6 +241,10 @@ namespace FastTrack.Persistence.Migrations
                     b.Property<DateTime>("DateAdded")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("KioskId")
                         .HasColumnType("int");
 
@@ -251,6 +255,9 @@ namespace FastTrack.Persistence.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<string>("Sku")
                         .IsRequired()

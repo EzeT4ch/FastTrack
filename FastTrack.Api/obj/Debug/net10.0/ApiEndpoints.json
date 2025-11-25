@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__1",
+    "RelativePath": "",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "FastTrack.Api.Endpoints.Kiosk.GetKiosksEndpoints",
     "Method": "HandleAsync",
     "RelativePath": "api/kiosks",
@@ -33,6 +49,35 @@
       "Kiosks"
     ],
     "EndpointName": "GetKiosks"
+  },
+  {
+    "ContainingType": "FastTrack.Api.Endpoints.Kiosk.GetKiosksLabelEndpoint",
+    "Method": "HandleAsync",
+    "RelativePath": "api/kiosks/labels",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Shared.Cores.Request.GetKiosksLabelReponse[]",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "Tags": [
+      "Kiosks"
+    ],
+    "EndpointName": "GetKiosksLabels"
   },
   {
     "ContainingType": "FastTrack.Api.Endpoints.Inventory.GetProductsEndpoint",
@@ -73,6 +118,41 @@
       "Products"
     ],
     "EndpointName": "GetProducts"
+  },
+  {
+    "ContainingType": "FastTrack.Api.Endpoints.Inventory.CreateProductEndpoint",
+    "Method": "HandleAsync",
+    "RelativePath": "api/products/create",
+    "HttpMethod": "POST",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Shared.Cores.Request.CreateProductRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "application/json"
+        ],
+        "StatusCode": 400
+      }
+    ],
+    "Tags": [
+      "Products"
+    ],
+    "EndpointName": "CreateProduct"
   },
   {
     "ContainingType": "FastTrack.Api.Endpoints.Purchase.ReceivePurchaseOrderEndpoint",

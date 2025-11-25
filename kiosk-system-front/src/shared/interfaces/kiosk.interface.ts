@@ -31,3 +31,8 @@ export interface KioskWithRelacional {
     purchaseOrder: PurchaseOrder[];
     inventoryMovement: InventoryMovement[]
 }
+
+export interface  KioskLabel {
+    kioskId: number;
+    name: string;
+}

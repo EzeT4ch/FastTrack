@@ -1,4 +1,5 @@
-import { Component, inject, signal, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { TagModule } from 'primeng/tag';
@@ -9,6 +10,8 @@ import { Product } from '../../../shared/interfaces/product.interface';
 import { Subscription } from 'rxjs';
 import { GridResponse } from '../../../shared/interfaces/grid-response.interface';
 import { GridRequest } from '../../../shared/interfaces/grid-request.interface';
+import { KioskLabel } from '../../../shared/interfaces/kiosk.interface';
+import { KioskService } from '../../../shared/services/kiosk.service';
 
 @Component({
   selector: 'app-product-list',
@@ -17,8 +20,10 @@ import { GridRequest } from '../../../shared/interfaces/grid-request.interface';
   styleUrl: './product-list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductListComponent implements OnDestroy {
+export class ProductListComponent implements OnDestroy, OnInit {
   private productService = inject(ProductService);
+  private kioskService = inject(KioskService);
+  private router = inject(Router);
   private subscription = new Subscription();
 
   products = signal<Product[]>([]);
@@ -26,13 +31,7 @@ export class ProductListComponent implements OnDestroy {
   totalRecords = signal<number>(0);
   selectedKioskId = signal<number | null>(null);
   
-  kiosks = signal<{ id: number; name: string }[]>([
-    { id: 1, name: 'Kiosk Centro - Plaza Mayor' },
-    { id: 2, name: 'Kiosk Norte - Terminal' },
-    { id: 3, name: 'Kiosk Sur - Aeropuerto' },
-    { id: 4, name: 'Kiosk Este - Universidad' },
-    { id: 5, name: 'Kiosk Oeste - Parque Central' }
-  ]);
+  kiosks = signal<KioskLabel[]>([]);
 
   columns: GridColumn[] = [
     { field: 'id', header: 'ID', sortable: true, filterable: true, width: '80px' },
@@ -57,6 +56,10 @@ export class ProductListComponent implements OnDestroy {
       callback: (row: Product) => this.deleteProduct(row),
     },
   ];
+
+  ngOnInit(): void {
+    this.fetchKiosks();
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -83,7 +86,7 @@ export class ProductListComponent implements OnDestroy {
   }
 
   onAddProduct(): void {
-    console.log('Agregar nuevo producto');
+    this.router.navigate(['/products/new']);
   }
 
   onKioskChange(kioskId: number | null): void {
@@ -117,5 +120,18 @@ export class ProductListComponent implements OnDestroy {
 
   getStatusSeverity(status: number): 'success' | 'danger' {
     return status === 1 ? 'success' : 'danger';
+  }
+
+  private fetchKiosks(): void {
+    const getKiosks: Subscription = this.kioskService.getKioksForLabels().subscribe({
+      next: (kioskLabels: KioskLabel[]) => {
+        this.kiosks.set(kioskLabels);
+      },
+      error: (error) => {
+        console.error('Error al cargar kioscos:', error);
+      }
+    });
+
+    this.subscription.add(getKiosks);
   }
 }

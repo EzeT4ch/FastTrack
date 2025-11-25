@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { Observable, of, delay } from 'rxjs';
-import { Kiosk } from '../interfaces/kiosk.interface';
+import { Kiosk, KioskLabel } from '../interfaces/kiosk.interface';
 import { GridRequest } from '../interfaces/grid-request.interface';
 import { GridResponse } from '../interfaces/grid-response.interface';
 import { HttpClient } from '@angular/common/http';
@@ -15,5 +15,9 @@ export class KioskService {
   
   getKiosksFromApi(gridRequest: GridRequest): Observable<GridResponse<Kiosk>> {
     return this.http.post<GridResponse<Kiosk>>(this.apiUrl, gridRequest);
+  }
+
+  getKioksForLabels(): Observable<KioskLabel[]> {
+    return this.http.get<KioskLabel[]>(`${this.apiUrl}/labels`);
   }
 }

@@ -16,6 +16,10 @@ public class ProductModel
 
     [Required] public string Sku { get; set; }
 
+    [Required] public string Description { get; set; }
+
+    [Required] public int Price { get; set; } = 0;
+
     [Required] public int Status { get; set; }
 
     public DateTime DateAdded { get; set; } = DateTime.Now;

@@ -4,6 +4,8 @@ import { OrderDetail } from "./order-detail.interface";
 
 export interface Product {
     id: number;
+    description: string;
+    price: number;
     kioskId: number;
     skuCode: string;
     name: string;
@@ -17,6 +19,8 @@ export interface Product {
 export interface ProductWithRelacional {
     id: number;
     kioskId: number;
+    description: string;
+    price: number;
     skuCode: string;
     name: string;
     status: number;
@@ -28,4 +32,24 @@ export interface ProductWithRelacional {
     currentInventories: CurrentInventory[];
     orderDetails: OrderDetail[];
     inventoryMovement: InventoryMovement[];
+}
+
+export interface CreateProductRequest {
+  description: string;
+  price: number;
+  kioskId: number;
+  skuCode: string;
+  name: string;
+  status: number;
+  initialStock?: number;
+}
+
+export interface UpdateProductRequest {
+  id: number;
+  description?: string;
+  price?: number;
+  kioskId?: number;
+  skuCode?: string;
+  name?: string;
+  status?: number;
 }

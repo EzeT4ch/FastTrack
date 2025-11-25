@@ -2,7 +2,7 @@ import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, delay } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { Product } from '../interfaces/product.interface';
+import { CreateProductRequest, Product } from '../interfaces/product.interface';
 import { GridResponse } from '../interfaces/grid-response.interface';
 import { GridRequest } from '../interfaces/grid-request.interface';
 
@@ -19,4 +19,7 @@ export class ProductService {
     return this.http.post<GridResponse<Product>>(this.apiUrl + (kioskId ? `?kioskId=${kioskId}` : ''), request);
   }
 
+  saveProduct(product: CreateProductRequest): Observable<string>{
+    return this.http.post<string>(`${this.apiUrl}/create`, product);
+  }
 }

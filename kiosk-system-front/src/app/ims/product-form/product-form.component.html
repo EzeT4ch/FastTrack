@@ -1,0 +1,157 @@
+<div class="product-form-container">
+  <p-card>
+    <ng-template #header>
+      <div class="form-header">
+        <h2 class="form-title">
+          <i class="pi pi-box"></i>
+          Nuevo Producto
+        </h2>
+      </div>
+    </ng-template>
+
+    <form class="product-form" (ngSubmit)="onSubmit()">
+      <div class="form-grid">
+        <!-- SKU Code -->
+        <div class="form-field">
+          <label for="skuCode" class="required">Código SKU</label>
+          <input
+            pInputText
+            id="skuCode"
+            type="text"
+            [value]="product().skuCode"
+            (input)="updateField('skuCode', $any($event.target).value)"
+            placeholder="Ej: PRD-001"
+            [class.p-invalid]="errors()['skuCode']"
+          />
+          @if (errors()['skuCode']) {
+            <small class="p-error">{{ errors()['skuCode'] }}</small>
+          }
+        </div>
+
+        <!-- Name -->
+        <div class="form-field">
+          <label for="name" class="required">Nombre</label>
+          <input
+            pInputText
+            id="name"
+            type="text"
+            [value]="product().name"
+            (input)="updateField('name', $any($event.target).value)"
+            placeholder="Nombre del producto"
+            [class.p-invalid]="errors()['name']"
+          />
+          @if (errors()['name']) {
+            <small class="p-error">{{ errors()['name'] }}</small>
+          }
+        </div>
+
+        <!-- Kiosk -->
+        <div class="form-field">
+          <label for="kioskId" class="required">Kiosk</label>
+          <p-select
+            inputId="kioskId"
+            [options]="kiosks()"
+            [(ngModel)]="product().kioskId"
+            optionLabel="name"
+            optionValue="id"
+            placeholder="Seleccionar kiosk"
+            [style]="{'width': '100%'}"
+            [class.p-invalid]="errors()['kioskId']"
+            (onChange)="updateField('kioskId', $event.value)"
+          />
+          @if (errors()['kioskId']) {
+            <small class="p-error">{{ errors()['kioskId'] }}</small>
+          }
+        </div>
+
+        <!-- Status -->
+        <div class="form-field">
+          <label for="status" class="required">Estado</label>
+          <p-select
+            inputId="status"
+            [options]="statusOptions()"
+            [(ngModel)]="product().status"
+            optionLabel="name"
+            optionValue="id"
+            placeholder="Seleccionar estado"
+            [style]="{'width': '100%'}"
+          />
+        </div>
+
+        <!-- Price -->
+        <div class="form-field">
+          <label for="price" class="required">Precio</label>
+          <p-inputnumber
+            inputId="price"
+            [(ngModel)]="product().price"
+            mode="currency"
+            currency="USD"
+            locale="en-US"
+            [min]="0"
+            [minFractionDigits]="2"
+            [maxFractionDigits]="2"
+            placeholder="0.00"
+            [class.p-invalid]="errors()['price']"
+            (onInput)="updateField('price', $event.value || 0)"
+          />
+          @if (errors()['price']) {
+            <small class="p-error">{{ errors()['price'] }}</small>
+          }
+        </div>
+
+        <!-- Initial Stock -->
+        <div class="form-field">
+          <label for="initialStock">Stock Inicial</label>
+          <p-inputnumber
+            inputId="initialStock"
+            [(ngModel)]="product().initialStock"
+            [min]="0"
+            [showButtons]="true"
+            placeholder="0"
+            [class.p-invalid]="errors()['initialStock']"
+            (onInput)="updateField('initialStock', $event.value || 0)"
+          />
+          @if (errors()['initialStock']) {
+            <small class="p-error">{{ errors()['initialStock'] }}</small>
+          }
+          <small class="field-help">Si ingresa stock inicial, se creará un movimiento de inventario</small>
+        </div>
+
+        <!-- Description (full width) -->
+        <div class="form-field full-width">
+          <label for="description" class="required">Descripción</label>
+          <textarea
+            pTextarea
+            id="description"
+            rows="4"
+            [value]="product().description"
+            (input)="updateField('description', $any($event.target).value)"
+            placeholder="Descripción detallada del producto"
+            [class.p-invalid]="errors()['description']"
+          ></textarea>
+          @if (errors()['description']) {
+            <small class="p-error">{{ errors()['description'] }}</small>
+          }
+        </div>
+      </div>
+    </form>
+
+    <ng-template #footer>
+      <div class="form-actions">
+        <p-button
+          label="Cancelar"
+          icon="pi pi-times"
+          severity="secondary"
+          [outlined]="true"
+          (onClick)="onCancel()"
+        />
+        <p-button
+          label="Guardar"
+          icon="pi pi-check"
+          severity="primary"
+          (onClick)="onSubmit()"
+        />
+      </div>
+    </ng-template>
+  </p-card>
+</div>
